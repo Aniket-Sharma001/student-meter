@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Find the glitch in the Student Meter Impossible Room.">
+  <title>GLITCH BUTTON — The Impossible Room | STUDENT METER</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Fun Zone · Offline mini-game</small></span></a>
+      <div class="header-actions"><a class="back-link" href="student-life.html">← Back to Fun Zone</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div>
+    </header>
+    <main class="glitch-main">
+      <section class="page-heading glitch-page-heading"><div><span class="eyebrow">🎮 STUDENT METER · FUN ZONE</span><h1>GLITCH BUTTON</h1><p class="lead">The Impossible Room</p></div><span class="pill">● 100% local · no network required</span></section>
+      <section class="glitch-stats" aria-label="Game stats">
+        <article class="stat-card"><span class="stat-icon">✨</span><span class="stat-label">Score</span><strong class="stat-value" id="glitch-score">0</strong></article>
+        <article class="stat-card"><span class="stat-icon">🏆</span><span class="stat-label">Best score</span><strong class="stat-value" id="glitch-best">0</strong></article>
+        <article class="stat-card"><span class="stat-icon">⏱️</span><span class="stat-label">Time</span><strong class="stat-value" id="glitch-time">—</strong></article>
+        <article class="stat-card"><span class="stat-icon">👆</span><span class="stat-label">Attempts</span><strong class="stat-value" id="glitch-attempts">0</strong></article>
+      </section>
+
+      <section class="panel glitch-game-shell" aria-live="polite">
+        <section class="glitch-screen" id="glitch-intro">
+          <div class="glitch-intro-mark" aria-hidden="true">⟁</div>
+          <span class="eyebrow">A tiny room with a tiny problem</span>
+          <h2>Something is wrong with this room.</h2>
+          <p class="muted">Find the glitch.</p>
+          <div class="glitch-controls" id="glitch-controls">
+            <label class="field"><span>Difficulty</span><select id="glitch-difficulty"><option value="easy">Easy · generous time</option><option value="normal" selected>Normal · 20 seconds</option><option value="hard">Hard · sharp eyes</option></select></label>
+            <button class="button glitch-start" id="glitch-start" type="button">START GAME <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="glitch-button-room" id="glitch-button-room" hidden>
+            <span class="glitch-room-label">ROOM 01 · PLEASE READ THE SIGN</span>
+            <p class="glitch-hint" id="glitch-button-message">It is probably best not to press it.</p>
+            <div class="glitch-button-field" id="glitch-button-field" aria-label="The impossible button room"></div>
+            <p class="glitch-announcement" id="glitch-announcement" aria-live="polite">The room is waiting.</p>
+          </div>
+        </section>
+
+        <section class="glitch-screen" id="glitch-puzzle" hidden>
+          <div class="glitch-puzzle-top"><div><span class="eyebrow" id="glitch-round-label">ROOM 1 OF 3</span><h2>THE ROOM HAS A GLITCH.</h2></div><span class="glitch-countdown" id="glitch-countdown">20</span></div>
+          <p class="glitch-instruction" id="glitch-instruction">YOU HAVE 20 SECONDS. Find what doesn't belong.</p>
+          <p class="glitch-rule" id="glitch-rule"></p>
+          <div class="glitch-object-grid" id="glitch-objects" aria-label="Room objects"></div>
+          <p class="glitch-announcement" id="glitch-feedback" aria-live="polite">Look closely. Tap the object that breaks the room's rule.</p>
+          <div class="glitch-score-line"><span>Wrong guesses: <strong id="glitch-wrong">0</strong></span><span>Rounds solved: <strong id="glitch-solved">0</strong> / 3</span></div>
+        </section>
+
+        <section class="glitch-screen glitch-result" id="glitch-result" hidden>
+          <div class="glitch-result-symbol" id="glitch-result-symbol" aria-hidden="true">✦</div>
+          <span class="eyebrow">SESSION COMPLETE</span>
+          <h2 id="glitch-ending">GLITCH HUNTER</h2>
+          <p class="muted" id="glitch-result-message">You found what the room tried to hide.</p>
+          <div class="glitch-final-score"><span>Final score</span><strong id="glitch-final-score">0</strong></div>
+          <p class="glitch-result-stats"><span id="glitch-result-time"></span><span id="glitch-result-attempts"></span><span id="glitch-result-best"></span></p>
+          <div class="form-actions glitch-result-actions"><button class="button" id="glitch-again" type="button">PLAY AGAIN</button><a class="button-secondary" href="student-life.html">BACK TO FUN ZONE</a></div>
+        </section>
+      </section>
+
+      <section class="panel glitch-howto"><span class="eyebrow">HOW TO PLAY</span><h2 style="margin:8px 0">A room. A rule. One thing out of place.</h2><ol><li>Choose a difficulty and begin. The room's first button never gives the same response twice in a row.</li><li>Read the room rule, then tap the object that breaks it before the timer runs out.</li><li>Wrong guesses cost a little time, not the whole game. Find three glitches to escape.</li><li>Score rewards quick, accurate eyes. Your best score, games played and fastest time are saved on this device only.</li></ol><p class="muted small">No camera, microphone, location or personal device data is accessed. Game statistics use local storage only.</p></section>
+    </main>
+    <footer class="site-footer"><span>STUDENT METER · Developed by IAmAniket007</span><a href="student-life.html">← Back to Fun Zone</a></footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/glitch-room.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Student Vault — your personal academic organizer.">
+  <title>Student Vault | STUDENT METER</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell vault-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Student Meter dashboard"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Your personal academic organizer</small></span></a>
+      <div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div>
+    </header>
+    <nav class="vault-nav" aria-label="Student Vault navigation">
+      <a class="vault-nav-link active" href="#overview" data-vault-view="overview">🏠 Overview</a>
+      <a class="vault-nav-link" href="#favorites" data-vault-view="favorites">⭐ Favorites</a>
+      <a class="vault-nav-link" href="#search" data-vault-view="search">🔍 Search</a>
+      <a class="vault-nav-link" href="#settings" data-vault-view="settings">⚙️ Vault Settings</a>
+    </nav>
+    <main class="vault-main">
+      <section class="vault-heading">
+        <div><span class="eyebrow">📚 STUDENT VAULT</span><h1>Keep your academic life organized.</h1><p class="lead">Your branches, semesters, subjects and study resources — in one personal space.</p></div>
+        <div class="vault-heading-actions"><button class="button-secondary" type="button" data-vault-action="search">🔍 Search vault</button><button class="button" type="button" data-vault-action="add-branch">＋ Add Branch</button></div>
+      </section>
+      <div class="vault-privacy"><span>🔒</span><span data-cloud-privacy>Your data is currently stored locally on this device/browser. You can export a backup of your data at any time.</span><span class="pill cloud-status-badge" data-cloud-status>⚪ Local only</span><a href="account.html">Account &amp; sync settings</a></div>
+      <div id="vault-app" aria-live="polite"><div class="panel"><p class="muted">Opening your Student Vault…</p></div></div>
+    </main>
+    <footer class="site-footer"><span>STUDENT METER · Developed by IAmAniket007</span><a href="index.html">← Back to Dashboard</a></footer>
+  </div>
+
+  <div class="vault-modal-backdrop" id="vault-modal" hidden>
+    <section class="vault-modal" role="dialog" aria-modal="true" aria-labelledby="vault-modal-title">
+      <button class="vault-modal-close" type="button" data-vault-modal-close aria-label="Close dialog">×</button>
+      <span class="eyebrow" id="vault-modal-eyebrow">Student Vault</span>
+      <h2 id="vault-modal-title">Add item</h2>
+      <form id="vault-modal-form"></form>
+    </section>
+  </div>
+  <div class="toast" id="vault-toast" role="status" hidden></div>
+  <script src="js/main.js"></script>
+  <script src="js/cloud-config.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/student-vault.js"></script>
+</body>
+</html>

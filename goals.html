@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1020"><title>Goals | STUDENT METER</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="site-shell">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Goals</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+  <main>
+    <section class="page-heading"><div><span class="eyebrow">Turn a big idea into a next step</span><h1>Your Goals</h1><p class="lead">Study, college, skills or something personal — define what matters, set a deadline and make progress at your pace.</p></div><span class="pill">🎯 <span data-xp>0</span> XP</span></section>
+    <section class="content-grid"><article class="panel"><span class="eyebrow">Start with one</span><h2 style="margin:8px 0 15px">Add a goal</h2><form id="goal-form"><div class="field-grid"><div class="field full"><label for="goal-title">Goal</label><input id="goal-title" name="title" maxlength="90" placeholder="e.g. Build a personal portfolio" required></div><div class="field"><label for="goal-category">Category</label><select id="goal-category" name="category"><option>Study</option><option>College</option><option>Skill</option><option>Personal</option></select></div><div class="field"><label for="goal-deadline">Deadline (optional)</label><input id="goal-deadline" name="deadline" type="date"></div></div><div class="form-actions"><button class="button" type="submit">＋ Create goal</button></div></form></article>
+      <article class="panel"><span class="eyebrow">A quick reflection</span><h2 style="margin:8px 0">Your progress</h2><strong class="metric" id="goal-completion">0%</strong><p class="metric-caption" id="goal-summary">No goals yet. Your first one can be small.</p><div class="progress-track" style="margin-top:15px"><div id="goal-progress" class="progress-fill" style="width:0%"></div></div></article></section>
+    <section class="section-heading"><div><span class="eyebrow">Keep your momentum</span><h2>Your goal cards</h2></div></section>
+    <section id="goal-list" class="feature-grid"></section>
+  </main><footer class="site-footer"><span>Big goals begin with small steps.</span><a href="index.html">← Back to Dashboard</a></footer>
+</div><script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/goals.js"></script></body></html>

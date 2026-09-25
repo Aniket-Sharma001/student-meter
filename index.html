@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Your daily student life, measured smarter.">
+  <title>STUDENT METER — Your daily student life, measured smarter</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Student Meter dashboard">
+        <span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Your student-life companion</small></span>
+      </a>
+      <div class="header-actions"><a class="back-link" href="about.html">About <span>↗</span></a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle light and dark mode">🌙</button></div>
+    </header>
+    <main>
+      <section class="hero-panel fade-in">
+        <div class="hero-content">
+          <span class="eyebrow">A little more balance, every day</span>
+          <h1>STUDENT<br><span class="gradient-text">METER.</span></h1>
+          <p class="lead">Your daily student life, measured smarter. Study, routines, money, mood and goals — a friendly space to keep your student life moving forward, one small win at a time.</p>
+          <div class="hero-bottom">
+            <a class="button" href="study.html">Start today <span aria-hidden="true">→</span></a>
+            <span class="pill">✨ Local-first · optional cloud sync</span><span class="pill" data-cloud-status>⚪ Local only</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Your student overview">
+        <article class="stat-card"><span class="stat-icon">⚡</span><span class="stat-label">Total experience</span><strong class="stat-value"><span data-xp>0</span> XP</strong></article>
+        <article class="stat-card"><span class="stat-icon">📚</span><span class="stat-label">Studied today</span><strong class="stat-value" data-home-study>0m</strong></article>
+        <article class="stat-card"><span class="stat-icon">🔥</span><span class="stat-label">Study streak</span><strong class="stat-value"><span data-home-streak>0</span> days</strong></article>
+        <article class="stat-card"><span class="stat-icon">🎯</span><span class="stat-label">Goals completed</span><strong class="stat-value" data-home-goals>0</strong></article>
+      </section>
+
+      <section class="panel reminder-dashboard" aria-labelledby="dashboard-reminder-title">
+        <div class="reminder-dashboard-main">
+          <span class="feature-icon">📚</span>
+          <div><span class="eyebrow">Study Reminder</span><h2 id="dashboard-reminder-title">Keep your daily target in sight</h2>
+            <p class="muted small"><span data-reminder-completed>0m</span> completed of <span data-reminder-target>2h</span> · <span data-reminder-remaining>2h</span> remaining</p></div>
+        </div>
+        <div class="progress-meta"><span>Today's study progress</span><span data-reminder-progress-label>0%</span></div>
+        <div class="progress-track"><div class="progress-fill" data-reminder-progress style="width:0%"></div></div>
+        <div class="reminder-dashboard-footer"><strong class="reminder-status" data-reminder-status>🟡 TARGET NOT COMPLETED</strong><span class="muted small" data-reminder-settings-status>Study Reminder is off</span><a class="button" href="notifications.html">OPEN REMINDER</a></div>
+      </section>
+
+      <section aria-labelledby="features-title">
+        <div class="section-heading"><div><span class="eyebrow">Your toolkit</span><h2 id="features-title">Make today count</h2></div><span class="muted small">Choose a space to get started</span></div>
+        <div class="feature-grid">
+          <a class="feature-card" href="student-vault.html"><span class="feature-icon">📚</span><h3>Student Vault</h3><p>Your notes, subjects, semesters and results in one place.</p><span class="feature-link"><span>OPEN VAULT</span><span>→</span></span></a>
+          <a class="feature-card" href="account.html"><span class="feature-icon">☁️</span><h3>Account &amp; Sync</h3><p>Sign in to back up and sync your Student Meter data across devices.</p><span class="feature-link"><span>MANAGE ACCOUNT</span><span>→</span></span></a>
+          <a class="feature-card" href="notifications.html"><span class="feature-icon">🔔</span><h3>Study Reminder</h3><p>See your target progress, reminder status and past notices.</p><span class="feature-link"><span>Open reminder</span><span>→</span></span></a>
+          <a class="feature-card" href="study.html"><span class="feature-icon">📚</span><h3>Study Meter</h3><p>Track study time, subjects, goals and your growing streak.</p><span class="feature-link"><span>Open study tracker</span><span>→</span></span></a>
+          <a class="feature-card" href="timer.html"><span class="feature-icon">⏱️</span><h3>Focus Timer</h3><p>Build focus with Pomodoro, deep-work and custom sessions.</p><span class="feature-link"><span>Start a session</span><span>→</span></span></a>
+          <a class="feature-card" href="routine.html"><span class="feature-icon">📅</span><h3>Daily Routine</h3><p>Plan your day and turn small tasks into satisfying checkmarks.</p><span class="feature-link"><span>Plan my day</span><span>→</span></span></a>
+          <a class="feature-card" href="money.html"><span class="feature-icon">💰</span><h3>Money Tracker</h3><p>Keep an eye on spending, income and your savings goal.</p><span class="feature-link"><span>Track my money</span><span>→</span></span></a>
+          <a class="feature-card" href="mood.html"><span class="feature-icon">🧠</span><h3>Mood &amp; Energy</h3><p>Check in with yourself and notice how your days feel.</p><span class="feature-link"><span>Check in</span><span>→</span></span></a>
+          <a class="feature-card" href="goals.html"><span class="feature-icon">🎯</span><h3>Goals</h3><p>Make study, college, skill and personal goals feel achievable.</p><span class="feature-link"><span>Set a goal</span><span>→</span></span></a>
+          <a class="feature-card" href="challenges.html"><span class="feature-icon">🔥</span><h3>Daily Challenges</h3><p>Try a fresh set of tiny challenges and earn XP as you go.</p><span class="feature-link"><span>See today's challenges</span><span>→</span></span></a>
+          <a class="feature-card" href="achievements.html"><span class="feature-icon">🏆</span><h3>Achievements</h3><p>Celebrate milestones, collect badges and see your level.</p><span class="feature-link"><span>View achievements</span><span>→</span></span></a>
+          <a class="feature-card" href="student-life.html"><span class="feature-icon">😂</span><h3>Student Life</h3><p>Laugh at the chaos, pick your next move and get a boost.</p><span class="feature-link"><span>Take a breather</span><span>→</span></span></a>
+          <a class="feature-card" href="profile.html"><span class="feature-icon">👤</span><h3>My Profile</h3><p>Set up your student details and see your personal stats.</p><span class="feature-link"><span>View my profile</span><span>→</span></span></a>
+        </div>
+      </section>
+      <section class="panel" style="margin-top:17px"><span class="eyebrow">Made for students</span><h3 style="margin-top:9px">A calmer way to keep track of it all.</h3><p class="muted" style="margin-bottom:14px">Designed and developed with care by IAmAniket007.</p><a class="button-secondary" href="about.html">About Student Meter <span aria-hidden="true">→</span></a></section>
+    </main>
+    <footer class="site-footer"><span>STUDENT METER · Your daily student life, measured smarter.</span><a href="about.html">Developed by IAmAniket007</a></footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/cloud-config.js"></script>
+  <script src="js/cloud.js"></script>
+</body>
+</html>

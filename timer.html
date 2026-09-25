@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1020"><title>Focus Timer | STUDENT METER</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="site-shell">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Focus Timer</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+  <main>
+    <section class="page-heading"><div><span class="eyebrow">One thing at a time</span><h1>Focus Timer</h1><p class="lead">Pick a rhythm, put distractions aside and give your attention a little room to breathe.</p></div><span class="pill">⚡ <span data-xp>0</span> XP</span></section>
+    <section class="content-grid">
+      <article class="panel" style="text-align:center">
+        <div class="timer-presets" aria-label="Timer presets"><button type="button" data-preset="25" class="active">🍅 Pomodoro · 25m</button><button type="button" data-preset="5">☕ Break · 5m</button><button type="button" data-preset="50">🌊 Deep focus · 50m</button></div>
+        <div class="timer-face" id="timer-face"><div><div class="timer-digits" id="timer-display" aria-live="polite">25:00</div><div class="muted small" id="timer-label">Pomodoro focus</div></div></div>
+        <div class="timer-controls"><button class="button" type="button" id="timer-start">Start focus</button><button class="button-secondary" type="button" id="timer-pause">Pause</button><button class="button-secondary" type="button" id="timer-reset">Reset</button></div>
+      </article>
+      <aside class="stack"><article class="panel"><span class="eyebrow">Make it yours</span><h2 style="margin:8px 0 13px">Custom timer</h2><form id="custom-timer-form"><div class="field"><label for="custom-minutes">Minutes</label><input id="custom-minutes" name="minutes" type="number" min="1" max="180" value="30" required></div><div class="form-actions"><button class="button-secondary" type="submit">Set custom time</button></div></form></article>
+        <article class="panel"><span class="eyebrow">Focus wins</span><h3 style="margin-top:9px">Completed sessions</h3><strong class="metric" id="session-count">0</strong><p class="metric-caption">sessions completed · <span id="timer-xp">0</span> XP from focus</p><div class="list" id="timer-history"></div></article></aside>
+    </section>
+  </main><footer class="site-footer"><span>Your focus, your pace. Take a break when you need it.</span><a href="index.html">← Back to Dashboard</a></footer>
+</div><script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/timer.js"></script></body></html>

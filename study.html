@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1020"><title>Study Meter | STUDENT METER</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="site-shell">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Study Meter</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+  <main>
+    <section class="page-heading"><div><span class="eyebrow">Show up, then build momentum</span><h1>Study Meter</h1><p class="lead">Keep track of your focus time and celebrate every session, no matter how small.</p></div><span class="pill">⚡ <span data-xp>0</span> XP</span></section>
+    <section class="stats-grid">
+      <article class="stat-card"><span class="stat-icon">⏳</span><span class="stat-label">Today's study time</span><strong class="stat-value" id="today-time">0m</strong></article>
+      <article class="stat-card"><span class="stat-icon">🎯</span><span class="stat-label">Daily goal</span><strong class="stat-value" id="goal-label">120m</strong></article>
+      <article class="stat-card"><span class="stat-icon">📈</span><span class="stat-label">Goal progress</span><strong class="stat-value" id="progress-label">0%</strong></article>
+      <article class="stat-card"><span class="stat-icon">🔥</span><span class="stat-label">Study streak</span><strong class="stat-value"><span id="study-streak">0</span> days</strong></article>
+    </section>
+    <section class="content-grid">
+      <div class="stack">
+        <article class="panel"><span class="eyebrow">Your daily target</span><h2 style="margin:8px 0 0">A little progress adds up.</h2><div class="progress-meta"><span id="progress-caption">0 of 120 minutes</span><span id="progress-percent">0%</span></div><div class="progress-track"><div id="study-progress" class="progress-fill" style="width:0%"></div></div></article>
+        <article class="panel"><h2>Log a study session</h2><p class="muted small">Add time you studied today and keep your subject history together.</p>
+          <form id="session-form"><div class="field-grid">
+            <div class="field"><label for="subject">Subject</label><select id="subject" name="subject"><option value="">Choose a subject</option></select></div>
+            <div class="field"><label for="minutes">Study time (minutes)</label><input id="minutes" name="minutes" type="number" min="1" max="1440" placeholder="e.g. 30" required></div>
+            <div class="field full"><label for="new-subject">Add a subject (optional)</label><input id="new-subject" name="newSubject" maxlength="40" placeholder="e.g. Applied Mathematics"></div>
+          </div><div class="form-actions"><button class="button" type="submit">＋ Add study time</button></div></form>
+        </article>
+        <article class="panel"><h2>Study sessions</h2><div class="list" id="session-list"></div></article>
+      </div>
+      <aside class="stack"><article class="panel"><span class="eyebrow">Daily goal</span><h3 style="margin-top:10px">Set a target that works for you</h3><form id="goal-form"><div class="field"><label for="daily-goal">Minutes per day</label><input id="daily-goal" name="goal" type="number" min="1" max="1440" required></div><div class="form-actions"><button class="button-secondary" type="submit">Update study goal</button></div></form></article>
+        <article class="panel"><h3>Subject breakdown</h3><p class="muted small">All-time minutes logged by subject.</p><div class="list" id="subject-list"></div></article>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer"><span>One session at a time. You’ve got this.</span><a href="index.html">← Back to Dashboard</a></footer>
+</div><script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/study.js"></script></body></html>

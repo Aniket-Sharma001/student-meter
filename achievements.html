@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1020"><title>Achievements | STUDENT METER</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="site-shell">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Achievements</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+  <main>
+    <section class="page-heading"><div><span class="eyebrow">Every milestone counts</span><h1>Your Achievements</h1><p class="lead">A collection of progress moments, from your first study session to the habits you keep coming back to.</p></div></section>
+    <section class="stats-grid"><article class="stat-card"><span class="stat-icon">⚡</span><span class="stat-label">Total XP</span><strong class="stat-value"><span data-xp>0</span> XP</strong></article><article class="stat-card"><span class="stat-icon">🏅</span><span class="stat-label">Current level</span><strong class="stat-value">Level <span data-level>1</span></strong></article><article class="stat-card"><span class="stat-icon">✨</span><span class="stat-label">Next level</span><strong class="stat-value"><span id="xp-next">500</span> XP</strong></article><article class="stat-card"><span class="stat-icon">🎖️</span><span class="stat-label">Badges unlocked</span><strong class="stat-value" id="badge-count">0 / 8</strong></article></section>
+    <section class="panel"><div class="progress-meta"><span>Level progress</span><span id="level-caption">0 / 500 XP</span></div><div class="progress-track"><div class="progress-fill" data-level-progress style="width:0%"></div></div></section>
+    <section class="section-heading"><div><span class="eyebrow">Your milestones</span><h2>Badges</h2></div><span class="muted small">Keep going — locked badges are future wins.</span></section>
+    <section class="badge-grid" id="achievement-list"></section>
+  </main><footer class="site-footer"><span>Your progress is worth celebrating.</span><a href="index.html">← Back to Dashboard</a></footer>
+</div><script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/achievements.js"></script></body></html>

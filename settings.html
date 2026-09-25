@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Configure your Student Meter study reminders.">
+  <title>Settings | STUDENT METER</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Study Reminder Settings</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+    <main>
+      <section class="page-heading"><div><span class="eyebrow">A nudge, on your terms</span><h1>Reminder Settings</h1><p class="lead">Choose your target, timing and reminder style. Your settings and reminder history stay in this browser.</p></div><a class="button-secondary" href="notifications.html">🔔 Open Notice Center</a></section>
+      <section class="content-grid">
+        <article class="panel">
+          <span class="eyebrow">Study Reminder</span><h2 style="margin:8px 0">Make it work for you</h2>
+          <form id="reminder-settings-form">
+            <label class="toggle-row" for="reminder-enabled"><span><strong>Study Reminder</strong><small>When enabled, check-ins follow the selected interval while this website is open.</small></span><span class="switch"><input id="reminder-enabled" name="enabled" type="checkbox"><span class="switch-track"></span></span></label>
+            <div class="field-grid reminder-fields">
+              <div class="field"><label for="student-type">Student type</label><select id="student-type" name="studentType"><option value="LADKA">LADKA</option><option value="LADKI">LADKI</option></select></div>
+              <div class="field"><label for="reminder-mode">Reminder mode</label><select id="reminder-mode" name="mode"><option>Friendly</option><option>Serious</option><option>Strict</option><option>Funny Roast</option></select></div>
+              <div class="field"><label for="target-preset">Daily study target</label><select id="target-preset" name="targetPreset"><option value="120">2 hours</option><option value="180">3 hours</option><option value="240">4 hours</option><option value="custom">Custom target</option></select></div>
+              <div class="field" id="custom-target-field" hidden><label for="custom-target">Custom target (minutes)</label><input id="custom-target" name="customTarget" type="number" min="1" max="1440" placeholder="e.g. 150"></div>
+              <div class="field"><label for="interval-preset">Reminder interval</label><select id="interval-preset" name="intervalPreset"><option value="30">30 minutes</option><option value="60">1 hour</option><option value="120">2 hours</option><option value="custom">Custom interval</option></select></div>
+              <div class="field" id="custom-interval-field" hidden><label for="custom-interval">Custom interval (minutes)</label><input id="custom-interval" name="customInterval" type="number" min="5" max="720" placeholder="e.g. 45"></div>
+            </div>
+            <label class="toggle-row notification-toggle" for="browser-notifications"><span><strong>Browser Notifications</strong><small>Get a browser notification when supported and permission is granted.</small></span><span class="switch"><input id="browser-notifications" name="browserNotifications" type="checkbox"><span class="switch-track"></span></span></label>
+            <div class="notice" id="notification-permission-info" aria-live="polite">Permission is only requested after you enable Study Reminder and save this setting.</div>
+            <div class="form-actions"><button class="button" type="submit">Save Study Reminder settings</button><a class="button-secondary" href="notifications.html">View notice center</a></div>
+          </form>
+        </article>
+        <aside class="stack">
+          <article class="panel"><span class="eyebrow">Preview</span><h3 style="margin:8px 0 12px">Your reminder message</h3><p class="reminder-exact" data-settings-preview-message>EEI LADKA, AAJ KYUN NHI PADHA H? MAA BAAP KO DHOKHA DE RAHA H.</p><p class="reminder-support" data-settings-preview-support>Chal, thoda padh le 😭📚</p></article>
+          <article class="panel"><span class="eyebrow">Clear expectations</span><h3 style="margin:8px 0">While the website is open</h3><p class="muted small" style="line-height:1.7">The in-page reminder runs while Student Meter is open. Browser notifications depend on browser support, permission and a secure context such as HTTPS or localhost. When the site is completely closed, regular website timers cannot promise to notify you.</p><p class="muted small" style="line-height:1.7;margin-bottom:0">Reminders stop automatically once tracked study sessions reach your target. Student Meter cannot lock or control your phone.</p></article>
+        </aside>
+      </section>
+    </main>
+    <footer class="site-footer"><span>Choose a goal that feels achievable.</span><a href="index.html">← Back to Dashboard</a></footer>
+  </div>
+  <script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/settings.js"></script>
+</body>
+</html>

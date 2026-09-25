@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoomMate Manager | Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="brand-box">
+          <div class="brand-mark">RM</div>
+          <h1>RoomMate Manager</h1>
+          <p>Manage your room. Track your money. Live stress-free.</p>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+          <h2>Welcome Back</h2>
+          <div id="loginMessage" class="message hidden"></div>
+
+          <label>
+            Email
+            <input type="email" id="loginEmail" placeholder="student@example.com" required />
+          </label>
+
+          <label>
+            Password
+            <input type="password" id="loginPassword" placeholder="Enter password" required />
+          </label>
+
+          <button type="submit" class="primary-btn">Login</button>
+          <p class="switch-link">Don't have an account? <a href="register.html">Create one</a></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

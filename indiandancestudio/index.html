@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#130f16">
+  <title>Indian Dance Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <section class="welcome" id="welcomeScreen" aria-labelledby="welcomeTitle">
+    <div class="welcome-pattern" aria-hidden="true"></div>
+    <div class="welcome-copy">
+      <p class="kicker">A rhythm room for every celebration</p>
+      <h1 id="welcomeTitle">Indian <span>Dance</span> Studio</h1>
+      <p class="welcome-subtitle">Choose your dancer and start the celebration!</p>
+      <button class="primary-button start-button" id="startButton" type="button"><span>Start dance</span><span aria-hidden="true">&#8594;</span></button>
+      <p class="credit">Developed by Aniket Kumar</p>
+    </div>
+    <div class="welcome-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+  </section>
+
+  <main class="studio" id="studio" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">ॐ</span><div><p class="brand-eyebrow">Indian Dance Studio</p><h2>Find your rhythm</h2></div></div>
+      <div class="top-actions"><span class="live-dot">Studio ready</span><button class="icon-button" id="fullscreenButton" type="button" aria-label="Toggle fullscreen" title="Toggle fullscreen">&#x26F6;</button></div>
+    </header>
+
+    <div class="studio-grid">
+      <section class="stage-panel" aria-labelledby="stageTitle">
+        <div class="stage-heading"><div><p class="kicker">Main stage</p><h1 id="stageTitle">Let the music move you</h1></div><span class="status-pill" id="statusPill">Ready</span></div>
+        <div class="stage" id="stage">
+          <div class="stage-arch arch-left"></div><div class="stage-arch arch-right"></div>
+          <div class="spotlight"></div><div class="stage-stars" aria-hidden="true">✦　·　✧　·　✦</div>
+          <div class="dancer-wrap" id="dancerWrap"><div class="dancer-fallback" id="fallbackDancer" aria-label="Built-in dancer illustration"></div><img class="dancer-image" id="dancerImage" alt="Selected dancer"></div>
+          <div class="floor"><div class="floor-ring"></div><div class="floor-ring floor-ring-small"></div></div>
+          <div class="stage-shadow" id="stageShadow"></div>
+        </div>
+        <div class="stage-controls" aria-label="Dance controls"><button class="primary-button" id="playButton" type="button">&#9654; Play dance</button><button class="control-button" id="pauseButton" type="button">&#10074;&#10074; Pause</button><button class="control-button" id="stopButton" type="button">&#9632; Stop</button><button class="control-button" id="resetButton" type="button">&#8635; Reset</button></div>
+        <p class="asset-note" id="assetNote" role="status">Character image not added — using built-in dancer.</p>
+      </section>
+
+      <aside class="control-panel" aria-label="Studio controls">
+        <section class="panel-section"><div class="section-title"><p class="kicker">01 / Choose your muse</p><span id="characterCounter">1 / 3</span></div><div class="character-grid" id="characterGrid"></div><div class="stepper"><button class="control-button" id="previousButton" type="button">&#8592; Previous</button><button class="control-button" id="nextButton" type="button">Next &#8594;</button></div></section>
+        <section class="panel-section style-section"><div class="section-title"><p class="kicker">02 / Dance style</p></div><div class="style-grid" id="styleGrid"><button class="style-button active" data-style="bollywood" type="button"><b>Bollywood</b><span>Expressive &amp; bright</span></button><button class="style-button" data-style="classical" type="button"><b>Classical</b><span>Graceful &amp; poised</span></button><button class="style-button" data-style="bhangra" type="button"><b>Bhangra</b><span>Bold &amp; buoyant</span></button><button class="style-button" data-style="garba" type="button"><b>Garba</b><span>Festive &amp; circular</span></button></div></section>
+        <section class="panel-section music-section"><div class="section-title"><p class="kicker">03 / Sound desk</p><button class="toggle active" id="musicToggle" type="button" aria-pressed="true"><span></span> Music on</button></div><div class="track-row"><span class="track-icon">♫</span><div><strong id="trackName">Character 1 track</strong><small id="musicNote">Silent mode — Add music to enable audio.</small></div></div><label class="volume-row" for="volumeSlider"><span>Volume</span><output id="volumeValue">70%</output><input id="volumeSlider" type="range" min="0" max="100" value="70"></label></section>
+        <section class="info-panel"><p class="kicker">Now in the studio</p><dl><div><dt>Dancer</dt><dd id="infoDancer">Character 1</dd></div><div><dt>Style</dt><dd id="infoStyle">Bollywood</dd></div><div><dt>Music</dt><dd id="infoMusic">Not available — Silent Mode</dd></div><div><dt>Status</dt><dd id="infoStatus">Ready</dd></div></dl></section>
+      </aside>
+    </div>
+    <footer><span>Indian Dance Studio</span><span>Developed by Aniket Kumar</span><span>Keys: Space play/pause · 1–3 dancers · F fullscreen · M sound · R reset</span></footer>
+  </main>
+  <audio id="audioPlayer" preload="metadata"></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>

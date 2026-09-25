@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoomMate Manager | Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      body {
+        background: #f5f7fb;
+      }
+
+      .dashboard-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        background: linear-gradient(180deg, #1f2937, #111827);
+        color: #fff;
+        padding: 24px 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(255,255,255,0.12);
+      }
+
+      .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nav a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 10px;
+        color: #dbeafe;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .nav a.active,
+      .nav a:hover {
+        background: rgba(255,255,255,0.08);
+      }
+
+      .main {
+        padding: 24px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 26px;
+      }
+
+      .welcome h2 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      .welcome p {
+        margin: 6px 0 0;
+        color: var(--muted);
+      }
+
+      .topbar-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .chip {
+        background: #eef2ff;
+        color: var(--primary-dark);
+        border-radius: 999px;
+        padding: 9px 12px;
+        font-weight: 700;
+      }
+
+      .primary-btn, .danger-btn {
+        border: none;
+        border-radius: 10px;
+        padding: 10px 16px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .primary-btn {
+        background: var(--primary);
+        color: white;
+      }
+
+      .danger-btn {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 18px;
+        margin-bottom: 26px;
+      }
+
+      .card {
+        background: white;
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+      }
+
+      .card .label {
+        color: var(--muted);
+        font-size: 0.82rem;
+        margin-bottom: 12px;
+      }
+
+      .value {
+        font-weight: 800;
+        font-size: 1.8rem;
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 18px;
+      }
+
+      .panel {
+        background: white;
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.04);
+      }
+
+      .panel h3 {
+        margin-top: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        text-align: left;
+        padding: 10px 8px;
+        border-bottom: 1px solid #eef2f7;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      .status.paid { background: #dcfce7; color: #166534; }
+      .status.pending { background: #fef3c7; color: #92400e; }
+      .status.partial { background: #dbeafe; color: #1d4ed8; }
+
+      @media (max-width: 860px) {
+        .dashboard-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          padding-bottom: 14px;
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">RM</div>
+          <span>RoomMate</span>
+        </div>
+
+        <nav class="nav">
+          <a href="#" class="active">Dashboard</a>
+          <a href="#">Members</a>
+          <a href="#">Expenses</a>
+          <a href="#">Rent & Bills</a>
+          <a href="#">Payments</a>
+          <a href="#">Reports</a>
+          <a href="#">Profile</a>
+          <a href="#">Settings</a>
+          <a href="#" id="logoutButton">Logout</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="welcome">
+            <h2 id="welcomeName">Welcome</h2>
+            <p>Room 204 • Hostel Management</p>
+          </div>
+
+          <div class="topbar-actions">
+            <span class="chip">Current Month</span>
+            <button class="primary-btn" type="button">+ Add Expense</button>
+          </div>
+        </header>
+
+        <section class="cards">
+          <div class="card">
+            <div class="label">Total Room Members</div>
+            <div class="value" id="membersCount">4</div>
+          </div>
+          <div class="card">
+            <div class="label">Monthly Rent</div>
+            <div class="value" id="monthlyRent">₹12000</div>
+          </div>
+          <div class="card">
+            <div class="label">Electricity Bill</div>
+            <div class="value" id="electricityBill">₹1600</div>
+          </div>
+          <div class="card">
+            <div class="label">Total Monthly Expenses</div>
+            <div class="value" id="monthlyExpense">₹5400</div>
+          </div>
+          <div class="card">
+            <div class="label">My Paid Amount</div>
+            <div class="value" id="paidAmount">₹2800</div>
+          </div>
+          <div class="card">
+            <div class="label">My Pending Amount</div>
+            <div class="value" id="pendingAmount">₹900</div>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel">
+            <h3>Recent Expenses</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Paid By</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Grocery</td>
+                  <td>Food</td>
+                  <td>₹2400</td>
+                  <td>Rahul</td>
+                </tr>
+                <tr>
+                  <td>Electricity</td>
+                  <td>Utilities</td>
+                  <td>₹1200</td>
+                  <td>Aman</td>
+                </tr>
+                <tr>
+                  <td>Cleaning</td>
+                  <td>Household</td>
+                  <td>₹400</td>
+                  <td>Rohit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel">
+            <h3>Recent Payments</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Payer</th>
+                  <th>Receiver</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Aniket</td>
+                  <td>Rahul</td>
+                  <td>₹600</td>
+                </tr>
+                <tr>
+                  <td>Rohit</td>
+                  <td>Aman</td>
+                  <td>₹800</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

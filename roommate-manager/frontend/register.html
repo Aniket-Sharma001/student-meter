@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoomMate Manager | Register</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="auth-body">
+    <div class="auth-wrapper">
+      <div class="auth-card">
+        <div class="brand-box">
+          <div class="brand-mark">RM</div>
+          <h1>RoomMate Manager</h1>
+          <p>Join your hostel group and start managing expenses smartly.</p>
+        </div>
+
+        <form id="registerForm" class="auth-form">
+          <h2>Create Account</h2>
+          <div id="registerMessage" class="message hidden"></div>
+
+          <label>
+            Full Name
+            <input type="text" id="fullName" placeholder="Rahul Sharma" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" id="email" placeholder="student@example.com" required />
+          </label>
+
+          <label>
+            Mobile Number
+            <input type="tel" id="mobileNumber" placeholder="9876543210" required />
+          </label>
+
+          <label>
+            Password
+            <input type="password" id="password" placeholder="Minimum 6 characters" required />
+          </label>
+
+          <label>
+            Confirm Password
+            <input type="password" id="confirmPassword" placeholder="Re-enter password" required />
+          </label>
+
+          <button type="submit" class="primary-btn">Register</button>
+          <p class="switch-link">Already registered? <a href="index.html">Login</a></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+  </body>
+</html>

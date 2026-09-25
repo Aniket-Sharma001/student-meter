@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b1020"><title>Mood &amp; Energy | STUDENT METER</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="site-shell">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Mood &amp; Energy</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+  <main>
+    <section class="page-heading"><div><span class="eyebrow">A moment for yourself</span><h1>Mood &amp; Energy</h1><p class="lead">A quick, private check-in can help you notice what you need today. Every feeling is welcome here.</p></div><span class="pill">💜 No judgement, just a check-in</span></section>
+    <section class="content-grid"><article class="panel"><form id="mood-form"><span class="eyebrow">How are you feeling today?</span><div class="choice-grid" id="mood-choices" role="group" aria-label="Choose today's mood" style="margin-top:15px">
+      <button class="choice" type="button" data-mood="Great"><span>😀</span><small>Great</small></button><button class="choice" type="button" data-mood="Good"><span>🙂</span><small>Good</small></button><button class="choice" type="button" data-mood="Okay"><span>😐</span><small>Okay</small></button><button class="choice" type="button" data-mood="Tired"><span>😴</span><small>Tired</small></button><button class="choice" type="button" data-mood="Stressed"><span>😓</span><small>Stressed</small></button>
+    </div><input type="hidden" id="mood-value" name="mood" required>
+      <div class="field" style="margin-top:19px"><label for="energy-level">Energy level: <span id="energy-label">5</span>/10</label><div class="range-wrap"><span>🪫</span><input id="energy-level" name="energy" type="range" min="1" max="10" value="5"><span>🔋</span></div></div>
+      <div class="field" style="margin-top:15px"><label for="mood-note">Anything you'd like to note? (optional)</label><textarea id="mood-note" name="note" maxlength="240" placeholder="A few words for yourself..."></textarea></div>
+      <div class="form-actions"><button class="button" type="submit">Save today's check-in</button></div>
+      <div class="notice" id="mood-message" hidden aria-live="polite"></div>
+    </form></article>
+    <aside class="stack"><article class="panel"><span class="eyebrow">Your recent check-ins</span><h2 style="margin:8px 0">Mood history</h2><div id="mood-history" class="list"></div></article><article class="panel"><h3>Gentle reminder</h3><p class="muted small" style="line-height:1.7;margin-bottom:0">Your mood is information, not a score. If today feels hard, consider reaching out to someone you trust and taking one small kind step for yourself.</p></article></aside></section>
+  </main><footer class="site-footer"><span>Take a breath. You’re doing your best.</span><a href="index.html">← Back to Dashboard</a></footer>
+</div><script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/mood.js"></script></body></html>

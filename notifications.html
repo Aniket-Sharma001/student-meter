@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Study Reminder notice center for Student Meter.">
+  <title>STUDENT METER — NOTICE CENTER</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Notice Center</small></span></a><div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div></header>
+    <main>
+      <section class="page-heading"><div><span class="eyebrow">Your progress, all in one place</span><h1>NOTICE CENTER</h1><p class="lead">A clear view of today's study target, your reminders and the steps left to reach your goal.</p></div><a class="button-secondary" href="settings.html">⚙️ Reminder settings</a></section>
+      <section class="stats-grid" aria-label="Today's study summary">
+        <article class="stat-card"><span class="stat-icon">🎯</span><span class="stat-label">Today's study target</span><strong class="stat-value" data-reminder-target>2h</strong></article>
+        <article class="stat-card"><span class="stat-icon">📚</span><span class="stat-label">Study time completed</span><strong class="stat-value" data-reminder-completed>0m</strong></article>
+        <article class="stat-card"><span class="stat-icon">⏳</span><span class="stat-label">Study time remaining</span><strong class="stat-value" data-reminder-remaining>2h</strong></article>
+        <article class="stat-card"><span class="stat-icon">🔔</span><span class="stat-label">Reminder</span><strong class="stat-value" data-reminder-on>OFF</strong></article>
+      </section>
+      <section class="content-grid">
+        <div class="stack">
+          <article class="panel"><div class="notice-heading"><div><span class="eyebrow">📚 Study reminder</span><h2 style="margin:8px 0">Today's target progress</h2></div><span class="reminder-status" data-reminder-status>🟡 TARGET NOT COMPLETED</span></div>
+            <div class="progress-meta"><span>Completed <span data-reminder-completed>0m</span> of <span data-reminder-target>2h</span></span><span data-reminder-progress-label>0%</span></div>
+            <div class="progress-track"><div class="progress-fill" data-reminder-progress style="width:0%"></div></div>
+            <div class="reminder-dashboard-footer"><a class="button" href="study.html">📚 START STUDYING</a><a class="button-secondary" href="timer.html">⏱️ OPEN FOCUS TIMER</a><button class="button-secondary" type="button" data-target-complete-page hidden>✓ MARK TARGET COMPLETE</button></div>
+          </article>
+          <article class="panel"><span class="eyebrow">⚠️ Latest notice</span><h2 style="margin:8px 0 15px">Your Study Reminder</h2><p class="reminder-exact notice-message" data-reminder-latest-message>EEI LADKA, AAJ KYUN NHI PADHA H? MAA BAAP KO DHOKHA DE RAHA H.</p><p class="muted small">Supportive reminders are shown while Student Meter is open. Your configured interval controls how often a notice appears.</p></article>
+        </div>
+        <aside class="stack">
+          <article class="panel"><span class="eyebrow">Reminder status</span><h2 style="margin:8px 0 13px" data-reminder-settings-status>Study Reminder is off</h2><div class="list">
+            <div class="list-item"><span>🕒</span><div class="list-item-main"><span class="list-item-title">Last reminder</span></div><span class="list-item-meta" data-reminder-last>No reminder sent today</span></div>
+            <div class="list-item"><span>🔁</span><div class="list-item-main"><span class="list-item-title">Reminder interval</span></div><span data-reminder-interval>1 hour</span></div>
+            <div class="list-item"><span>🔔</span><div class="list-item-main"><span class="list-item-title">Browser notifications</span></div><span data-browser-notification-status>Off</span></div>
+          </div><div class="form-actions"><a class="button-secondary" href="settings.html">Update reminder settings</a></div></article>
+          <article class="panel"><span class="eyebrow">Reminder history</span><h2 style="margin:8px 0">Recent notices</h2><div class="list" id="reminder-history"></div></article>
+        </aside>
+      </section>
+      <section class="notice limitation-notice"><strong>About reminders:</strong> Browser notifications require permission and a supported secure context (HTTPS or localhost). If this website is fully closed, browser timers cannot guarantee reminders. Student Meter does not control or lock your phone.</section>
+    </main>
+    <footer class="site-footer"><span>One focused step at a time.</span><a href="index.html">← Back to Dashboard</a></footer>
+  </div>
+  <script src="js/main.js"></script><script src="js/cloud-config.js"></script><script src="js/cloud.js"></script><script src="js/notifications.js"></script>
+</body>
+</html>

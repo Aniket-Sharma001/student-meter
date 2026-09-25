@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Sign in to sync your Student Meter data across devices.">
+  <title>Account | STUDENT METER</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">S</span><span><span class="brand-name">STUDENT METER</span><small class="brand-caption">Your student-life companion</small></span></a>
+      <div class="header-actions"><a class="back-link" href="index.html">← Back to Dashboard</a><button class="icon-button" type="button" data-theme-toggle aria-label="Toggle theme">🌙</button></div>
+    </header>
+    <main>
+      <section class="page-heading"><div><span class="eyebrow">☁️ Your Student Meter account</span><h1>Study across devices.</h1><p class="lead">Sign in to sync your Student Vault and student-life progress. Your local data stays available on this device.</p></div><span class="pill" data-cloud-status>⚪ Cloud not configured</span></section>
+      <section class="content-grid account-grid">
+        <article class="panel" id="account-auth-panel">
+          <div class="account-tabs" role="tablist" aria-label="Account actions"><button class="account-tab active" type="button" data-account-tab="login">Login</button><button class="account-tab" type="button" data-account-tab="signup">Create account</button><button class="account-tab" type="button" data-account-tab="reset">Forgot password</button></div>
+          <div class="notice" id="account-config-message" role="status">Cloud accounts need a Supabase project and the public browser configuration. Until configured, Student Meter remains local-only.</div>
+          <form id="account-form">
+            <div class="field-grid">
+              <div class="field full"><label for="account-email">Email</label><input id="account-email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+              <div class="field full" data-account-password-field><label for="account-password">Password</label><input id="account-password" name="password" type="password" autocomplete="current-password" minlength="8" required></div>
+              <div class="field full" data-account-name-field hidden><label for="account-name">Name (optional)</label><input id="account-name" name="name" autocomplete="name" maxlength="80"></div>
+              <div class="field" data-account-name-field hidden><label for="account-course">Course / Branch (optional)</label><input id="account-course" name="course" maxlength="100"></div>
+              <div class="field" data-account-name-field hidden><label for="account-college">College / Institute (optional)</label><input id="account-college" name="college" maxlength="120"></div>
+            </div>
+            <div class="form-actions"><button class="button" id="account-submit" type="submit" disabled>Login</button></div>
+          </form>
+        </article>
+        <article class="panel" id="account-session-panel" hidden>
+          <span class="eyebrow">Signed in</span><h2 style="margin:8px 0">Welcome to your account</h2><p class="muted">Account: <strong id="account-email-label"></strong></p>
+          <div class="notice" id="account-migration-message" role="status">Checking for local and cloud data…</div>
+          <div class="stack" id="account-migration-actions" hidden>
+            <button class="button" type="button" data-migration-action="upload">Upload local data to my account</button>
+            <button class="button-secondary" type="button" data-migration-action="cloud">Keep cloud data on this device</button>
+            <button class="button-secondary" type="button" data-migration-action="merge">Merge non-conflicting records</button>
+            <button class="button-danger" type="button" data-migration-action="replace">Replace cloud data with local data</button>
+            <button class="button-secondary" type="button" data-migration-action="fresh">Start fresh on this device</button>
+          </div>
+          <div class="form-actions"><button class="button-secondary" type="button" data-account-change-password>Change password</button><button class="button-danger" type="button" data-account-logout>Logout</button></div>
+          <form id="account-change-password-form" hidden><div class="field"><label for="account-new-password">New password</label><input id="account-new-password" name="password" type="password" autocomplete="new-password" minlength="8" required></div><div class="form-actions"><button class="button" type="submit">Update password</button><button class="button-secondary" type="button" data-account-cancel-password>Cancel</button></div></form>
+        </article>
+        <aside class="stack">
+          <article class="panel"><span class="eyebrow">Your data, your choice</span><h3 style="margin:8px 0">Local and cloud status</h3><p class="muted small" data-cloud-privacy>Your data is currently stored locally on this device/browser. You can export a backup of your data at any time.</p><p class="muted small">Cloud sync requires your own Supabase project, verified browser URL settings and the included database migration. This website cannot guarantee reminders while completely closed.</p></article>
+          <article class="panel"><span class="eyebrow">Account deletion</span><h3 style="margin:8px 0">Delete My Account</h3><p class="muted small" id="account-deletion-explanation">Permanent auth-user deletion must run through a trusted server or Supabase Edge Function with a service-role secret. This static website intentionally does not expose that secret; configure the secure server-side deletion flow before enabling this action.</p><button class="button-danger" type="button" disabled aria-describedby="account-deletion-explanation">Delete My Account (server setup required)</button></article>
+        </aside>
+      </section>
+      <section class="panel" id="password-recovery-panel" hidden><span class="eyebrow">Password reset</span><h2 style="margin:8px 0">Choose a new password</h2><form id="password-recovery-form"><div class="field"><label for="recovery-password">New password</label><input id="recovery-password" name="password" type="password" minlength="8" autocomplete="new-password" required></div><div class="form-actions"><button class="button" type="submit">Update password</button></div></form></section>
+    </main>
+    <footer class="site-footer"><span>STUDENT METER · Developed by IAmAniket007</span><a href="index.html">← Back to Dashboard</a></footer>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/cloud-config.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>

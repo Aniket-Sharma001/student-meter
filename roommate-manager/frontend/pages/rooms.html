@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoomMate Manager | Rooms</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <style>
+      body { margin: 0; font-family: Arial, sans-serif; background: #f5f7fb; color: #1f2937; }
+      .layout { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+      .sidebar { background: #111827; color: white; padding: 24px 18px; }
+      .sidebar .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; margin-bottom: 28px; }
+      .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(255,255,255,0.1); }
+      .nav a { display: block; padding: 12px 14px; border-radius: 10px; text-decoration: none; color: #dbeafe; margin-bottom: 8px; font-weight: 600; }
+      .nav a.active, .nav a:hover { background: rgba(255,255,255,0.08); }
+      .main { padding: 24px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+      .panel { background: white; border-radius: 18px; padding: 20px; box-shadow: 0 10px 22px rgba(15,23,42,0.04); }
+      .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+      label { display: block; font-weight: 600; }
+      input, select { width: 100%; margin-top: 8px; padding: 11px 12px; border: 1px solid #e5e7eb; border-radius: 10px; }
+      .primary-btn, .secondary-btn { border: none; border-radius: 10px; padding: 10px 18px; font-weight: 700; cursor: pointer; }
+      .primary-btn { background: #4f46e5; color: white; }
+      .secondary-btn { background: #eef2ff; color: #3730a3; }
+      .table-wrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; margin-top: 18px; }
+      th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #eef2f7; }
+      .status { display: inline-block; padding: 5px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; }
+      .status.paid { background: #dcfce7; color: #166534; }
+      .status.pending { background: #fef3c7; color: #92400e; }
+      @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">RM</div>
+          <span>RoomMate</span>
+        </div>
+        <nav class="nav">
+          <a href="../dashboard.html">Dashboard</a>
+          <a href="rooms.html" class="active">Rooms</a>
+          <a href="expenses.html">Expenses</a>
+          <a href="rent-bills.html">Rent & Bills</a>
+          <a href="payments.html">Payments</a>
+          <a href="reports.html">Reports</a>
+          <a href="profile.html">Profile</a>
+          <a href="#" id="logoutButton">Logout</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="topbar">
+          <div>
+            <h2>Room Management</h2>
+            <p style="margin: 4px 0 0; color: #6b7280;">Create and manage your room details.</p>
+          </div>
+          <button class="primary-btn" type="button">+ New Room</button>
+        </div>
+
+        <section class="panel">
+          <h3>Create Room</h3>
+          <form id="roomForm">
+            <div class="form-grid">
+              <div>
+                <label>Room Name / Number
+                  <input type="text" id="roomName" placeholder="Room 204" required />
+                </label>
+              </div>
+              <div>
+                <label>Room Address
+                  <input type="text" id="roomAddress" placeholder="Hostel Block A" />
+                </label>
+              </div>
+              <div>
+                <label>Total Members
+                  <input type="number" id="totalMembers" min="1" value="4" required />
+                </label>
+              </div>
+              <div>
+                <label>Monthly Rent
+                  <input type="number" id="monthlyRent" min="0" step="0.01" value="12000" required />
+                </label>
+              </div>
+            </div>
+            <div style="margin-top: 16px;">
+              <button class="primary-btn" type="submit">Save Room</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel" style="margin-top: 18px;">
+          <h3>Room List</h3>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Room</th>
+                  <th>Address</th>
+                  <th>Members</th>
+                  <th>Rent</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="roomTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/rooms.js"></script>
+  </body>
+</html>

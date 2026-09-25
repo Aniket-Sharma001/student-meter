@@ -1,0 +1,130 @@
+CREATE DATABASE IF NOT EXISTS roommate_manager;
+USE roommate_manager;
+
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    mobile_number VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE rooms (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_name VARCHAR(100) NOT NULL,
+    room_address VARCHAR(255),
+    total_members INT NOT NULL DEFAULT 0,
+    monthly_rent DECIMAL(10,2) NOT NULL DEFAULT 0,
+    created_by BIGINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE TABLE room_members (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    join_date DATE NOT NULL,
+    total_paid DECIMAL(10,2) DEFAULT 0,
+    pending_amount DECIMAL(10,2) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE expenses (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    title VARCHAR(150) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    expense_date DATE NOT NULL,
+    paid_by BIGINT NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE,
+    FOREIGN KEY (paid_by) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE expense_splits (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    expense_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL,
+    share_amount DECIMAL(10,2) NOT NULL,
+    paid_amount DECIMAL(10,2) DEFAULT 0,
+    status VARCHAR(20) DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (expense_id) REFERENCES expenses(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE rent (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    month VARCHAR(20) NOT NULL,
+    rent_amount DECIMAL(10,2) NOT NULL,
+    due_date DATE,
+    amount_paid DECIMAL(10,2) DEFAULT 0,
+    pending_amount DECIMAL(10,2) DEFAULT 0,
+    payment_status VARCHAR(30) DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
+);
+
+CREATE TABLE electricity_bills (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    bill_month VARCHAR(20) NOT NULL,
+    previous_reading DECIMAL(10,2) NOT NULL DEFAULT 0,
+    current_reading DECIMAL(10,2) NOT NULL DEFAULT 0,
+    units_consumed DECIMAL(10,2) NOT NULL DEFAULT 0,
+    rate_per_unit DECIMAL(10,2) NOT NULL DEFAULT 0,
+    total_bill DECIMAL(10,2) NOT NULL,
+    due_date DATE,
+    status VARCHAR(30) DEFAULT 'PENDING',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE
+);
+
+CREATE TABLE payments (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    payer_id BIGINT NOT NULL,
+    receiver_id BIGINT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    payment_date DATE NOT NULL,
+    payment_method VARCHAR(30) NOT NULL,
+    note VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE,
+    FOREIGN KEY (payer_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE notifications (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    room_id BIGINT NOT NULL,
+    user_id BIGINT,
+    title VARCHAR(150) NOT NULL,
+    message TEXT NOT NULL,
+    type VARCHAR(50) DEFAULT 'INFO',
+    is_read BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (room_id) REFERENCES rooms(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_rooms_created_by ON rooms(created_by);
+CREATE INDEX idx_expenses_room_date ON expenses(room_id, expense_date);
+CREATE INDEX idx_payments_room_date ON payments(room_id, payment_date);
